@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+ <!-- EVE Swagger Interface Localdev Swagger UI V3 -->
+ <head>
+  <meta charset="UTF-8">
+  <title>EVE Swagger Interface</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Source+Code+Pro:300,600|Titillium+Web:400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:400,300,500,700,900,100" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" href="/ui/swagger-ui.css"/>
+  <link rel="stylesheet" type="text/css" href="/ui/esi.css"/>
+  <link rel="icon" href="data:;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAADO0lEQVRo3u2YS2hTURCGP6s2IAaTaEsFu/CBbnShLhQfK18VtAWpqAjqwhfFZ8S6ENzUZ6kLkfikokIRWlCkKujSV5qaNqUqthhsdCM+kgaNYlrKuPCkXq5N7g1NSKT3h4HDnTnD/Cczc+YELFiwYMGChRGCcUAt8BEQ4ANwDCj8H4K3Ac9U4Hq5BxTkO4G9SYJPyMZcBWb25CqGqc85AYeB3pUrAmM061XqJJ1AJ1APfFa6LmB+Cj9vNOtSYDswE/gKNAGPs0liNNAwRF73AouVzUJgIEn+x1WwAKuBH0PYnMsmgUMpivMTMF7ZbQf6dPqfQKXSTwa+p/C1NVsEggYdZovGdjpwFPAA1cAUje6wgR9vtgiIgdSY9HPVwE84W12o18Dmq2Y9CpgLrAVm6+w+peEno7ic4tT6gKnKbg7wUqf3AdOUfp7BL3A8WwQmpaiDg8qmBPiSxCYETFB2p5PYBDTNICuYqFpdSOXqY5UmCdQZnG61xnYz0KJSM6hI2XM9C3kNCDTn+yiRtyjQpdB7IAI8Aco1ds8M/DzRdKkdahTpM9GizUi/GlUOqKnhHxRlsIjPZSjoZNKQbhvtT6ONLkh8X7J0iTz3tUgw1CP+joAAsqqsTHxtfgmGesTX5hdAak6ekNfdXfK6u0v8HQHZsm2rGRJr9AQiBhv2m7zIziT2eF+0yrUb18XhcMiOXTsFkMDLTjnv8YjD4ZDdVVUCSO3ZOml+cF8A8Vy6KK+63pghUK8fp50m7gnt2BFQMlQr/pOTRUWcun2HaDTK1ctXALDb7TQ1NhKNRrl04cLgpkKbDYDi4mLi8biZunXpizhosOGtyWGuO7EIh8Osq6zE6XJywO0GIBaLsWHTRpwuJ4ePHPn7eCgt5anXi81m4+C+/WYIdOs/uDM0TpcA3wBZtmL5YL63trcJIOUVFeIPtEsw1CPPW32DNXCrsTGdIo4DM/TtP9mDJgIsSvNBszJBIgvyC1ivOXR3ogYG1PV/Uz0pHZon5Re1YU+KS68QqFJ9+hEwSz1eZmboohTgnYrvvfoWA8am48RvcDoP832UiBroI/lO4O4w9dZfiyP+z10LFixYsGAhL/Ebsj4IyMdDZDUAAAAASUVORK5CYII=">
+ </head>
+ <body>
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0">
+   <defs>
+    <symbol viewBox="0 0 20 20" id="unlocked">
+     <path d="M15.8 8H14V5.6C14 2.703 12.665 1 10 1 7.334 1 6 2.703 6 5.6V6h2v-.801C8 3.754 8.797 3 10 3c1.203 0 2 .754 2 2.199V8H4c-.553 0-1 .646-1 1.199V17c0 .549.428 1.139.951 1.307l1.197.387C5.672 18.861 6.55 19 7.1 19h5.8c.549 0 1.428-.139 1.951-.307l1.196-.387c.524-.167.953-.757.953-1.306V9.199C17 8.646 16.352 8 15.8 8z"></path>
+    </symbol>
+    <symbol viewBox="0 0 20 20" id="locked">
+     <path d="M15.8 8H14V5.6C14 2.703 12.665 1 10 1 7.334 1 6 2.703 6 5.6V8H4c-.553 0-1 .646-1 1.199V17c0 .549.428 1.139.951 1.307l1.197.387C5.672 18.861 6.55 19 7.1 19h5.8c.549 0 1.428-.139 1.951-.307l1.196-.387c.524-.167.953-.757.953-1.306V9.199C17 8.646 16.352 8 15.8 8zM12 8H8V5.199C8 3.754 8.797 3 10 3c1.203 0 2 .754 2 2.199V8z"/>
+    </symbol>
+    <symbol viewBox="0 0 20 20" id="close">
+     <path d="M14.348 14.849c-.469.469-1.229.469-1.697 0L10 11.819l-2.651 3.029c-.469.469-1.229.469-1.697 0-.469-.469-.469-1.229 0-1.697l2.758-3.15-2.759-3.152c-.469-.469-.469-1.228 0-1.697.469-.469 1.228-.469 1.697 0L10 8.183l2.651-3.031c.469-.469 1.228-.469 1.697 0 .469.469.469 1.229 0 1.697l-2.758 3.152 2.758 3.15c.469.469.469 1.229 0 1.698z"/>
+    </symbol>
+    <symbol viewBox="0 0 20 20" id="large-arrow">
+     <path d="M13.25 10L6.109 2.58c-.268-.27-.268-.707 0-.979.268-.27.701-.27.969 0l7.83 7.908c.268.271.268.709 0 .979l-7.83 7.908c-.268.271-.701.27-.969 0-.268-.269-.268-.707 0-.979L13.25 10z"/>
+    </symbol>
+    <symbol viewBox="0 0 20 20" id="large-arrow-down">
+     <path d="M17.418 6.109c.272-.268.709-.268.979 0s.271.701 0 .969l-7.908 7.83c-.27.268-.707.268-.979 0l-7.908-7.83c-.27-.268-.27-.701 0-.969.271-.268.709-.268.979 0L10 13.25l7.418-7.141z"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="jump-to">
+     <path d="M19 7v4H5.83l3.58-3.59L8 6l-6 6 6 6 1.41-1.41L5.83 13H21V7z"/>
+    </symbol>
+    <symbol viewBox="0 0 24 24" id="expand">
+     <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
+    </symbol>
+   </defs>
+  </svg>
+  <div id="header">
+   <div id="header_wrap">
+    <a id="logo" href="/"><img alt="CCP Games" height="50" width="75" src="/ui/ccp.png" /><span class="title">ESI</span></a>
+    <div id="versions">
+     <div class="version"><span class="available version" id="legacy">legacy</span></div>
+     <div class="underscore version"><span class="available version" id="_legacy" title="legacy spec, with inline versioning">📌</span></div>
+     <div class="version"><span class="available version" id="latest">latest</span></div>
+     <div class="underscore version"><span class="available version" id="_latest" title="latest spec, with inline versioning">📌</span></div>
+     <div class="version"><span class="available version" id="dev">dev</span></div>
+     <div class="underscore version"><span class="available version" id="_dev" title="dev spec, with inline versioning">📌</span></div>
+     <div class="version"><span class="available version" id="meta">meta</span></div>
+    </div>
+    <div id="datasources" style="visibility:hidden">
+     <select id="datasource">
+      <option value="tranquility" selected>tranquility</option>
+      <option value="singularity">singularity</option>
+     </select>
+    </div>
+   </div>
+  </div>
+  <div id="swagger-ui"></div>
+  <!-- these 5 (five) extra containers make me sad. -->
+  <div class="swagger-ui">
+   <div>
+    <div class="wrapper">
+     <section class="block col-12 block-desktop col-12-desktop">
+      <section class="api_info">
+       <div id="api_info" style="display:none">
+        <a id="spec_link" href="/latest/swagger.json" title="ESI latest spec">
+         <div id="base_url">base url: <span id="base_url">/latest</span></div>
+         <div id="api_version">api version: <span id="api_version">localdev</span></div>
+        </a>
+        <a id="diff_link" href="https://esi.tech.ccp.is/diff/latest/dev/">diff esi specs</a>
+       </div>
+      </section>
+     </section>
+    </div>
+   </div>
+  </div>
+  <script src="/ui/swagger-ui-bundle.js" type="text/javascript"></script>
+  <script src="/ui/swagger-ui-standalone-preset.js" type="text/javascript"></script>
+  <script type="text/javascript">
+  function UpdateQueryString(key, value) {
+   var url = window.location.href;
+   var re = new RegExp("([?&])" + key + "=.*?(&|#|$)(.*)", "gi"),
+       hash;
+   if (re.test(url)) {
+    if (typeof value !== 'undefined' && value !== null) {
+     return url.replace(re, '$1' + key + "=" + value + '$2$3');
+    } else {
+     hash = url.split('#');
+     url = hash[0].replace(re, '$1$3').replace(/(&|\?)$/, '');
+     if (typeof hash[1] !== 'undefined' && hash[1] !== null) {
+      url += '#' + hash[1];
+     }
+     return url;
+    }
+   } else {
+    if (typeof value !== 'undefined' && value !== null) {
+     var separator = url.indexOf('?') !== -1 ? '&' : '?';
+     hash = url.split('#');
+     url = hash[0] + separator + key + '=' + value;
+     if (typeof hash[1] !== 'undefined' && hash[1] !== null) {
+      url += '#' + hash[1];
+     }
+     return url;
+    } else {
+     return url;
+    }
+   }
+  }
+  window.onload = function() {
+   function esiStatus() {
+    var sheet = document.getElementById("esi-status");
+    if (sheet != undefined && ! document.hasFocus()) {
+     return
+    }
+    if (sheet == undefined) {
+     var sheet = document.createElement("style");
+     sheet.id = "esi-status";
+     document.body.appendChild(sheet);
+    }
+    var url = new URL(window.location.href);
+    var search = new URLSearchParams(url.search);
+    var ver = search.get("version") || "latest";
+    if (["latest", "dev", "legacy", "meta"].indexOf(ver) < 0) {
+     ver = "latest";
+    }
+    fetch("https://esi.tech.ccp.is/status.json?version=" + ver).then((resp) => {
+     resp.json().then((data) => {
+      var statusCSS = "div.opblock div.opblock-summary::after { width: 16px; height: 16px; border-radius: 8px; background: gray; content: ''; margin: 0 7px 0 2px; }";
+      var byStatus = {"green": [], "yellow": [], "red": []};
+      for (i = 0; i < data.length; i++) {
+       for (t = 0; t < data[i]["tags"].length; t++) {
+        byStatus[data[i]["status"]].push("div[id='operations-" + data[i]["tags"][t] + "-" + data[i]["method"] + data[i]["route"].replace(/\{|\}/g, "").replace(/\//g, "_").replace(/_$/, "").split(".")[0] + "'] div.opblock-summary::after");
+       }
+      }
+      if (byStatus["green"].length > 0) { statusCSS += "\n" + byStatus["green"].join(", ") + "{ background: green; }"; }
+      if (byStatus["yellow"].length > 0) { statusCSS += "\n" + byStatus["yellow"].join(", ") + "{ background: yellow; }"; }
+      if (byStatus["red"].length > 0) { statusCSS += "\n" + byStatus["red"].join(", ") + "{ background: red; }"; }
+      sheet.innerText = statusCSS;
+     });
+    });
+   }
+   esiStatus();
+   window.setInterval(esiStatus, 60000);
+   var url = new URL(window.location.href);
+   var searchParams = new URLSearchParams(url.search);
+   var selectedDatasource = searchParams.get("datasource");
+   var selectedVersion = searchParams.get("version") || "latest";
+   var baseUrl = document.querySelector("span#base_url");
+   var specLink = document.querySelector("a#spec_link");
+   if (selectedVersion == "meta") {
+    var swaggerUrl = "/swagger.json";
+    baseUrl.innerHTML = "/";
+   } else {
+    if (selectedVersion.startsWith("_")) {
+     baseUrl.innerHTML = "/";
+    } else {
+     baseUrl.innerHTML = "/" + selectedVersion;
+    }
+    var swaggerUrl = "/" + selectedVersion + "/swagger.json";
+   }
+   if (selectedDatasource) {
+    swaggerUrl += "?datasource=" + selectedDatasource;
+   }
+   specLink.href = swaggerUrl;
+   specLink.title = "ESI " + selectedVersion + " spec";
+   specLink.parentElement.removeAttribute("style");
+   const esi = SwaggerUIBundle({
+    url: url.origin + swaggerUrl,
+    dom_id: '#swagger-ui',
+    presets: [
+     SwaggerUIBundle.presets.apis,
+     SwaggerUIStandalonePreset
+    ],
+    plugins: [
+     SwaggerUIBundle.plugins.DownloadUrl
+    ],
+    layout: "StandaloneLayout",
+    docExpansion: "none",
+    apisSorter: "alpha",
+    tagsSorter: "alpha",
+    operationsSorter: "alpha",
+    deepLinking: true,
+    showExtensions: true,
+    displayRequestDuration: true,
+    defaultModelRendering: "model",
+    defaultModelExpandDepth: 999,
+    defaultModelsExpandDepth: 999,
+   })
+   esi.authActions.configureAuth({
+    clientId: "your-client-id",
+    appName: "EVE Swagger UI",
+    scopeSeparator: " ",
+    realm: "ESI",
+    additionalQueryStringParams: {},
+   });
+   window.ui = esi
+   var datasources = document.querySelector("select#datasource");
+   if (selectedDatasource) {
+    for (i = 0; i < datasources.children.length; i++) {
+     if (datasources.children[i].value == selectedDatasource) {
+      datasources.children[i].selected = true;
+     } else {
+      datasources.children[i].selected = false;
+     }
+    }
+   }
+   datasources.addEventListener("change", function () {
+     window.location.href = UpdateQueryString("datasource", this.value);
+   });
+   datasources.parentElement.removeAttribute("style");
+   var versions = document.querySelectorAll("span.version");
+   for (i = 0; i < versions.length; i++) {
+    if (versions[i].id == selectedVersion) {
+     versions[i].classList.add("selected");
+     versions[i].classList.remove("available");
+    }
+    versions[i].addEventListener("click", function (event) {
+     for (k = 0; k < event.currentTarget.classList.length; k++) {
+      if (event.currentTarget.classList[k] === "selected") {
+       return;
+      } else if (event.currentTarget.classList[k] === "available") {
+       event.currentTarget.classList.remove("available");
+       event.currentTarget.classList.add("selected");
+       break;
+      }
+     }
+     for (j = 0; j < versions.length; j++) {
+      if (versions[j] != event.currentTarget) {
+       versions[j].classList.remove("selected");
+       versions[j].classList.add("available");
+      }
+     }
+     var newVersion = event.currentTarget.id;
+     if (newVersion == "meta") {
+      var newUrl = "/swagger.json";
+      baseUrl.innerHTML = "/";
+     } else {
+      if (newVersion.startsWith("_")) {
+       baseUrl.innerHTML = "/";
+      } else {
+       baseUrl.innerHTML = "/" + newVersion;
+      }
+      var newUrl = "/" + newVersion + "/swagger.json";
+     }
+     if (selectedDatasource) {
+      newUrl += "?datasource=" + selectedDatasource;
+     }
+     specLink.href = newUrl;
+     specLink.title = "ESI " + newVersion + " spec";
+     window.ui.specActions.updateUrl(url.origin + newUrl);
+     window.ui.specActions.download();
+     history.pushState(history.state, document.title, UpdateQueryString("version", newVersion));
+     esiStatus();
+    });
+   }
+  }
+  </script>
+ </body>
+</html>
